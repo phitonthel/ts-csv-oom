@@ -12,7 +12,16 @@ class User {
       this.workHours.push(+Math.ceil((user.id * user.id) / i).toString().slice(0, 3))
     }
 
-    this.somePayload = Array(1e6) // add 7 MB
+    this.somePayload = this.createUnnecessaryPayload(1e6) // 30 MB
+    // this.somePayload = Array(1e6) // 7MB
+  }
+
+  createUnnecessaryPayload = (num) => {
+    const arr = []
+    for (let i = 0; i < num; i++) {
+      arr.push(i)
+    }
+    return arr
   }
 }
 
